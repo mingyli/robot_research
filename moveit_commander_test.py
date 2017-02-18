@@ -37,6 +37,7 @@ print(curr_pose)
 
 # Generating a plan to move to a pose goal (same as dragging around the nodes in Rviz)
 # THIS DOESN'T SEEM TO WORK FOR SOME ODD REASON
+# This is position 1
 print("=========== Moving arm to certain cartesian coords")
 pose_target = geometry_msgs.msg.Pose() # hopefully copies the current pose
 pose_target.orientation.w = 1.0
