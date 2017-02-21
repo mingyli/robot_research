@@ -1,0 +1,12 @@
+import rospy
+import baxter_interface
+from baxter_interface import CHECK_VERSION
+
+def main():
+	rospy.init_node('Dabster')
+	right = baxter_interface.Limb('right')
+	left = baxter_interface.Limb('left')
+	right_angles = {'right_s0': 0.060975736318445196, 'right_s1': 0.5204029822901266, 'right_w0': 		-3.0330635128464345, 'right_w1': -0.05483981316690354, 'right_w2': -0.21053886313727305, 		'right_e0': 2.1356847519334674, 'right_e1': 2.2837138979644096}
+	left_angles = {'left_w0': -0.3255874222286791, 'left_w1': 0.34552917247118947, 'left_w2': 		0.03604854851530722, 'left_e0': 0.26422819071326253, 'left_e1': -0.029912625363765568, 		'left_s0': 0.4414029717140278, 'left_s1': -0.966791391564782}
+	right.move_to_joint_positions(right_angles)
+	left.move_to_joint_positions(left_angles)

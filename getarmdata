@@ -1,0 +1,36 @@
+# Working from the moveit tutorials online
+# 
+# 
+
+import sys
+import copy
+import rospy
+import moveit_commander
+import moveit_msgs.msg 
+import geometry_msgs.msg
+
+# Initializes moveit_commander & rospy
+print("========== Starting tutorial setup")
+moveit_commander.roscpp_initialize(sys.argv)
+rospy.init_node('move_group_python_interface_tutorial', anonymous=True)
+
+# Instantiates a RobotCommander object and PlanningSceneInterface object
+robot = moveit_commander.RobotCommander()
+scene = moveit_commander.PlanningSceneInterface()
+
+# Instantiates a MoveGroupCommander object, interfaces w/ right arm joints
+group = moveit_commander.MoveGroupCommander('left_arm')
+
+# Create DisplayTrajectory publisher to publish trajectories for RVIZ
+display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
+	moveit_msgs.msg.DisplayTrajectory)
+
+# # Wait for RVIZ to initialize 
+# print("========== Waiting for RVIZ...")
+# rospy.sleep(10)
+# print("========== Starting tutorial")
+
+# Refer to moveit documentation for more information about poses
+print("========== Printing current group pose")
+curr_pose = group.get_current_pose().pose
+print(curr_pose)
