@@ -1,4 +1,3 @@
-
 import rospy
 import baxter_interface
 from baxter_interface import Gripper
@@ -12,10 +11,7 @@ left = baxter_interface.Limb('left')
 right_gripper = Gripper('right')
 left_gripper = Gripper('left')
 
-#start the listener
 listener = tf.TransformListener()
-
-
 rospy.sleep(2) # waits for data to be published to topic. tf will grab last-published position
 
 while True:
