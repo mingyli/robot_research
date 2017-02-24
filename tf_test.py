@@ -15,11 +15,13 @@ listener = tf.TransformListener()
 rospy.sleep(2) # waits for data to be published to topic. tf will grab last-published position
 
 while True:
-	try:
-		(trans,rot) = listener.lookupTransform('/right_gripper', '/base', rospy.Time(0))
-		# ((x, y, z), (x, y, z, w))
-		break
-	except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
-	    continue
-
-print(trans, rot)
+	raw_input("Press Enter for transform coords")
+	while True:
+		try:
+			(trans,rot) = listener.lookupTransform('/right_gripper', '/base', rospy.Time(0))
+			# Look up the position of the right gripper w.r.t. base
+			# ((x, y, z), (x, y, z, w))
+			break
+		except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
+		    continue
+	print((trans, rot))
