@@ -25,7 +25,9 @@ while True:
 			(trans,rot) = listener.lookupTransform('/right_gripper', '/base', rospy.Time(0))
 			# Look up the position of the right gripper w.r.t. base
 			# ((x, y, z), (x, y, z, w))
+			angles = right.joint_angles()
 			break
 		except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
 		    continue
 	print((trans, rot))
+	print angles
