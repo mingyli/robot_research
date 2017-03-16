@@ -12,7 +12,9 @@ rospy.init_node('Grip_Test')
 right = baxter_interface.Limb('right')
 
 right_gripper = Gripper('right')
+rospy.sleep(1)
 left_gripper = Gripper('left')
+rospy.sleep(1)
 
 #left, right, from view facing baxter
 angles = {}

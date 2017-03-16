@@ -28,7 +28,7 @@ display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path
 	moveit_msgs.msg.DisplayTrajectory)
 
 # # Wait for RVIZ to initialize 
-# print("========== Waiting for RVIZ...")
+# print("========== Waiting for RVIZ...")y.init_node('Quicksta
 # rospy.sleep(10)
 # print("========== Starting tutorial")
 

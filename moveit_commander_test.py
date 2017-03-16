@@ -19,7 +19,7 @@ robot = moveit_commander.RobotCommander()
 scene = moveit_commander.PlanningSceneInterface()
 
 # Instantiates a MoveGroupCommander object, interfaces w/ right arm joints
-group = moveit_commander.MoveGroupCommander('left_arm')
+group = moveit_commander.MoveGroupCommander('right_arm')
 
 # Create DisplayTrajectory publisher to publish trajectories for RVIZ
 display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path',
