@@ -19,6 +19,12 @@ def move_to_point(point):
 	pose_target.position.z = point.z
 	print(pose_target)
 	group.set_pose_target(pose_target)
+
+
+	# Try to set position but leave orientation at random
+	# group.set_position_target(pose_target)
+
+	
 	plan = group.plan()
 	group.go(wait=True)
 	rospy.signal_shutdown('end program')

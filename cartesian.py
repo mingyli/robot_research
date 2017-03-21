@@ -26,20 +26,35 @@ print "============"
 print "============ Generating plan 1"
 
 pose_target = geometry_msgs.msg.Pose()
-# pose_target.orientation.w = 1.0
-pose_target.position.x = 0.7
-pose_target.position.y = 0.05
-pose_target.position.z = 1.1
+
+pose_target.orientation.x = 0.1
+pose_target.orientation.y = 0.5
+pose_target.orientation.z = 0.1
+pose_target.orientation.w = 0.5
+
+pose_target.position.x = 0.5
+pose_target.position.y = 0.1
+pose_target.position.z = 0.6
 while True:
 	raw_input("Press Enter")
 	
+	group.set_goal_orientation_tolerance(0.5)
 	group.set_pose_target(pose_target)
+
+
+	# try to set position but leave orientation at random
+	# group.set_position_target([pose_target.position.x, pose_target.position.y, 
+	# 	pose_target.position.z])
 	print(pose_target)
 	plan = group.plan()
 	group.go(wait=True)
 
-	# pose_target.orientation.w -= 0.1
-	pose_target.position.x -= 0.1
+	pose_target.orientation.x -= 0.1
+	pose_target.orientation.y -= 0.1		
+	pose_target.orientation.z -= 0.1
+	pose_target.orientation.w -= 0.1	
+
+	# pose_target.position.x -= 0.1
 	pose_target.position.y -= 0.1
 	pose_target.position.z -= 0.1
 
