@@ -38,6 +38,8 @@ pose_target.position.z = 0.6
 while True:
 	raw_input("Press Enter")
 	
+	# Tolerance range so robot will still plan even if 
+	# it can't exactly hit the desired orientation
 	group.set_goal_orientation_tolerance(0.5)
 	group.set_pose_target(pose_target)
 
